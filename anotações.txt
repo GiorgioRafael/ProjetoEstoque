@@ -1,0 +1,42 @@
+Projeto estoque
+
+
+
+SINTAXE DE CONEXAO NODE AO SEQUELIZE(MYSQL)
+
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('projetoestoque', 'root', '1234', {
+    host:"localhost",
+    dialect: 'mysql'
+});
+
+
+Atualização de dados do estoque
+UPDATE usuarios set usuario = "novoTitulo", senha ="xx"
+se fizer assim, vai ser alterado todos os dados
+sempre utilizar o update junto com o where para não atualizar todos os dados
+
+criação de tabelas no sequelize\sql
+
+iniciar uma constante ou uma variavel
+
+const Item = sequelize.define('itens', {
+    Descricao: {
+        type: Sequelize.STRING
+
+    },
+    Quantidade: {
+        type: sequelize.INTERGER
+    }
+})
+
+
+criacao de um novo registro no banco de dados
+Tabela.create({
+    coluna1: "ConteudoColuna1",
+    coluna2: "1234"
+})
+
+usuarios.create({
+    usuario: "juninho'
+})

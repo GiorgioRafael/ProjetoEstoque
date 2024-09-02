@@ -1,0 +1,47 @@
+<header>
+
+<ul class="list-group list-group-horizontal">
+
+<div class="row justify-content-between">
+    <div class="col-4">
+    <ul class="list-unstyled">
+    <li class="ms-3 mx-3"><h1>Estoque</h1></li>
+    </ul>
+    </div>
+    <div class="col-4">
+<!--<li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>  -->
+    <div class=" mt-3">
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+    V.06
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <li><a href="http://localhost:3000/"><button class="dropdown-item" type="button">Tela inicial</button></a></li>
+    <li><a href="http://localhost:3000/criarItem"><button class="dropdown-item" type="button">Adcionar item</button></a></li>
+  </ul>
+</div>
+    </div>
+    </div>
+  </div>
+
+
+    
+</header>
+<hr>
+{{#each itens}}
+<!-- Item N:{{@index}} -->
+<div clas="padding">
+    <ul class="list-group ms-3 me-3 mt-3 mb-3">
+    <li class="list-group-item active">Desc: {{Descricao}}</li>
+    <li class="list-group-item">Quantidade: {{Quantidade}}</li>
+    <li class="list-group-item">COD: {{Codigo}}</li>
+    <li class="list-group-item">Preco: {{Preco}}R$</li>
+    <li class="list-group-item">Preço de Compra: {{Pcompra}}R$</li>
+    <li class="list-group-item">Lucro Liquido: {{Lucroliq}}R$</li>
+    <li class="list-group-item">Lucro : {{Lucro}}%</li>
+    <a href="/rotadeleteitem/{{id}}"><button class="btn btn-danger mt-2">Deletar</button></a>
+    </ul>
+</div:clas>
+    <hr>
+{{/each}}
