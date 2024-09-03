@@ -96,5 +96,32 @@ app.get('/registro', (req, res)=>{
             res.render('erroDeletarItem.handlebars')
         })
     })
+    
+    //Rota de edição de item
+    app.get('/edititem/:id', function(req, res){
+        Item.findOne({where: {'id': req.params.id}}).then(function(item){
+            res.render('editItem.handlebars', {item: item})
+        })
+    })
+
+    //Rota Update Item
+    app.post('/updateitem', function(req, res){
+        Item.update({
+            Codigo: req.body.Codigo,
+            Descricao: req.body.Descricao,
+            Quantidade: req.body.Quantidade,
+            Preco: req.body.Preco,
+            Pcompra: req.body.Pcompra,
+            Lucroliq: req.body.Preco - req.body.Pcompra,
+            Lucro: (((req.body.Preco - req.body.Pcompra) / req.body.Pcompra) * 100).toFixed(2),
+        }, {
+            where: {'id': req.body.id}
+        }).then(function(){
+            res.render('itemEditado.handlebars')
+        }).catch(function(err){
+            res.render('erroEditarItem.handlebars')
+        })
+    })
+const author = true;
 
 // Item.sync({force: true})

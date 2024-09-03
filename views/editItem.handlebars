@@ -1,0 +1,15 @@
+<h1>Edição de item do estoque</h1>
+
+<form action="/updateitem" method="POST">
+    <p>Código</p>
+    <input type="text" value="{{Codigo}}" name="Codigo" placeholder="Codigo  do Produto"> <br><br>
+    <p>Descrição</p>
+    <input type="text" value="{{Descricao}}" name="Descricao" placeholder="Descricao do Produto"> <br><br>
+    <p>Quantidade</p>
+    <input type="text" value="{{Quantidade}}" name="Quantidade" placeholder="Quantidade de itens"> <br><br>
+    <p>Preço</p>
+    <input type="text" value="{{Preco}}" name="Preco" placeholder="Preço do Produto"><br><br>
+    <p>Preço de Compra</p>
+    <input type="text" value="{{Pcompra}}" name="Pcompra" placeholder="Preço de Compra"> <br><br>
+    <input type="submit" Enviar>
+</form>
