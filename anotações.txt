@@ -40,3 +40,18 @@ Tabela.create({
 usuarios.create({
     usuario: "juninho'
 })
+
+
+
+
+
+    app.put('/updateitem/:id', (req, res)=>{
+        Item.update({
+            Codigo: req.body.Codigo,
+            Descricao: req.body.Descricao,
+            Quantidade: req.body.Quantidade,
+            Preco: req.body.Preco,
+            Pcompra: req.body.Pcompra,
+            Lucroliq: req.body.Preco - req.body.Pcompra,
+            Lucro: (((req.body.Preco - req.body.Pcompra) / req.body.Pcompra) * 100).toFixed(2),},
+            {where: {'id': req.params.id}})})

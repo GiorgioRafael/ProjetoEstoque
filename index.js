@@ -105,7 +105,10 @@ app.get('/registro', (req, res)=>{
     })
 
     //Rota Update Item
-    app.post('/updateitem', function(req, res){
+    app.put('/updateitem/:id', async(req, res)=>{
+        const itemId = req.params.id;
+        const resultado = await item.replaceOne({_id: itemId}, req.body)
+        console.log(resultado)
         Item.update({
             Codigo: req.body.Codigo,
             Descricao: req.body.Descricao,
@@ -113,15 +116,7 @@ app.get('/registro', (req, res)=>{
             Preco: req.body.Preco,
             Pcompra: req.body.Pcompra,
             Lucroliq: req.body.Preco - req.body.Pcompra,
-            Lucro: (((req.body.Preco - req.body.Pcompra) / req.body.Pcompra) * 100).toFixed(2),
-        }, {
-            where: {'id': req.body.id}
-        }).then(function(){
-            res.render('itemEditado.handlebars')
-        }).catch(function(err){
-            res.render('erroEditarItem.handlebars')
-        })
-    })
-const author = true;
+            Lucro: (((req.body.Preco - req.body.Pcompra) / req.body.Pcompra) * 100).toFixed(2),},
+            {where: {'id': req.params.id}})})
 
 // Item.sync({force: true})
